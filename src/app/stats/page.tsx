@@ -2,7 +2,7 @@
 
 import { Zap, Leaf, Users2, Thermometer, ClipboardCheck } from "lucide-react";
 import { AreaChart, Area, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
-import { homeStats, consumptionSeries, corpsStats, achievements } from "@/lib/data";
+import { homeStats, consumptionSeries, corpsStats, achievements, site } from "@/lib/data";
 
 const ratingColor: Record<string, string> = {
   A: "var(--color-leaf)",
@@ -132,9 +132,15 @@ export default function StatsPage() {
               фіксує зони тепловтрат і формує рекомендації щодо модернізації. Статус робіт публікується тут
               після кожного циклу перевірок.
             </p>
-            <button className="mt-5 inline-flex items-center gap-2 rounded-full px-5 py-3 text-[13.5px] font-semibold text-white" style={{ background: "var(--color-leaf)" }}>
+            <a
+              href={site.auditSignupForm}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-5 inline-flex items-center gap-2 rounded-full px-5 py-3 text-[13.5px] font-semibold text-white"
+              style={{ background: "var(--color-leaf)" }}
+            >
               Доєднатися до команди аудиторів
-            </button>
+            </a>
           </div>
           <div className="rounded-2xl overflow-hidden h-52" style={{ background: "linear-gradient(90deg,#2aa9e0 0%, #1f9d55 45%, #f5b94a 75%, #e8734a 100%)" }}>
             <div className="h-full w-full grid place-items-center text-white/90 text-[13px] font-medium">Теплова карта фасаду — приклад візуалізації</div>
