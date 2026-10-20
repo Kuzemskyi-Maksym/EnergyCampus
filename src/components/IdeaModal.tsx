@@ -43,9 +43,6 @@ export default function IdeaModal({ open, onClose }: { open: boolean; onClose: (
                 <label className="text-[13px] font-medium text-slate">Опис інноваційної пропозиції по оптимізації енергії</label>
                 <textarea required rows={4} className="mt-1 w-full rounded-xl border border-line px-3.5 py-2.5 text-[14px] outline-none focus:border-leaf resize-none" />
               </div>
-              <p className="text-[12px] text-slate-light leading-relaxed">
-                Цей цифровий формат доповнює фізичні «Скриньки пропозицій» у корпусах.
-              </p>
               <button type="submit" className="w-full rounded-xl py-3 text-white font-semibold text-[14.5px] transition-transform hover:scale-[1.01]" style={{ background: "var(--color-leaf)" }}>
                 Надіслати ідею
               </button>

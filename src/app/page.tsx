@@ -102,8 +102,7 @@ export default function Home() {
           </span>
           <h3 className="mt-4 font-display font-bold text-[20px]" style={{ color: "var(--color-forest)" }}>Банк ідей економії</h3>
           <p className="mt-2 text-[14px] leading-relaxed" style={{ color: "var(--color-slate)" }}>
-            Це цифровий формат, що доповнює фізичні «Скриньки пропозицій» у корпусах. Опиши своє інноваційне
-            рішення з оптимізації енергії — найкращі ідеї потрапляють у план впровадження.
+            Опиши своє інноваційне рішення з оптимізації енергії — найкращі ідеї потрапляють у план впровадження.
           </p>
           <button
             onClick={() => setIdeaOpen(true)}

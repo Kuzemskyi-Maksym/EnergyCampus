@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Send, Camera, Globe2, Mail } from "lucide-react";
+import { Send } from "lucide-react";
 import { site } from "@/lib/data";
 
 const columns = [
@@ -43,9 +43,6 @@ export default function Footer() {
           </p>
           <div className="mt-5 flex gap-2.5">
             <a href={site.botUrl} target="_blank" rel="noreferrer" aria-label="Telegram" className="h-9 w-9 grid place-items-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"><Send size={16} /></a>
-            <a href="#" aria-label="Instagram" className="h-9 w-9 grid place-items-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"><Camera size={16} /></a>
-            <a href="#" aria-label="Facebook" className="h-9 w-9 grid place-items-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"><Globe2 size={16} /></a>
-            <a href={`mailto:${site.email}`} aria-label="Email" className="h-9 w-9 grid place-items-center rounded-full bg-white/10 hover:bg-white/20 transition-colors"><Mail size={16} /></a>
           </div>
         </div>
 
@@ -63,8 +60,11 @@ export default function Footer() {
         <div>
           <div className="text-[13px] font-semibold uppercase tracking-wide text-white/50">Контакти</div>
           <ul className="mt-4 space-y-2.5 text-[14px] text-white/80">
-            <li>{site.email}</li>
-            <li>{site.telegramChannel}</li>
+            <li>
+              <a href={site.botUrl} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                {site.bot}
+              </a>
+            </li>
             <li className="text-white/60">{site.address}</li>
           </ul>
         </div>

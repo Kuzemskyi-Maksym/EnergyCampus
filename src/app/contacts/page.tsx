@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Send, MapPin, Clock, Paperclip, ChevronDown } from "lucide-react";
+import { Send, MapPin, Clock, Paperclip, ChevronDown } from "lucide-react";
 import { site, faq } from "@/lib/data";
 
 export default function ContactsPage() {
@@ -23,17 +23,10 @@ export default function ContactsPage() {
         <div>
           <div className="space-y-4">
             <div className="rounded-2xl border p-5 flex gap-3.5" style={{ borderColor: "var(--color-line)" }}>
-              <Mail size={18} style={{ color: "var(--color-leaf)" }} className="shrink-0 mt-0.5" />
-              <div>
-                <div className="text-[12.5px] font-semibold" style={{ color: "var(--color-slate-light)" }}>Пошта</div>
-                <div className="text-[14.5px] font-medium" style={{ color: "var(--color-forest)" }}>{site.email}</div>
-              </div>
-            </div>
-            <div className="rounded-2xl border p-5 flex gap-3.5" style={{ borderColor: "var(--color-line)" }}>
               <Send size={18} style={{ color: "var(--color-leaf)" }} className="shrink-0 mt-0.5" />
               <div>
-                <div className="text-[12.5px] font-semibold" style={{ color: "var(--color-slate-light)" }}>Telegram-канал</div>
-                <div className="text-[14.5px] font-medium" style={{ color: "var(--color-forest)" }}>{site.telegramChannel}</div>
+                <div className="text-[12.5px] font-semibold" style={{ color: "var(--color-slate-light)" }}>Telegram-бот</div>
+                <a href={site.botUrl} target="_blank" rel="noreferrer" className="text-[14.5px] font-medium hover:underline" style={{ color: "var(--color-forest)" }}>{site.bot}</a>
               </div>
             </div>
             <div className="rounded-2xl border p-5 flex gap-3.5" style={{ borderColor: "var(--color-line)" }}>

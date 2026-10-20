@@ -95,7 +95,7 @@ export default function StatsPage() {
           <table className="w-full text-[13.5px]">
             <thead>
               <tr style={{ background: "var(--color-leaf-tint-2)" }}>
-                {["Корпус", "Електроенергія, %", "Вода, %", "Тепловтрати", "Рейтинг"].map((h) => (
+                {["Корпус", "Електроенергія, %", "Тепловтрати", "Рейтинг"].map((h) => (
                   <th key={h} className="text-left font-semibold px-5 py-3" style={{ color: "var(--color-forest)" }}>{h}</th>
                 ))}
               </tr>
@@ -105,7 +105,6 @@ export default function StatsPage() {
                 <tr key={c.corp} className="border-t" style={{ borderColor: "var(--color-line)" }}>
                   <td className="px-5 py-3 font-medium" style={{ color: "var(--color-ink)" }}>{c.corp}</td>
                   <td className="px-5 py-3" style={{ color: "var(--color-slate)" }}>{c.electricity}</td>
-                  <td className="px-5 py-3" style={{ color: "var(--color-slate)" }}>{c.water}</td>
                   <td className="px-5 py-3" style={{ color: "var(--color-slate)" }}>{c.heatLoss}</td>
                   <td className="px-5 py-3">
                     <span className="inline-flex h-6 w-6 items-center justify-center rounded-full text-[12px] font-bold text-white" style={{ background: ratingColor[c.rating] }}>
@@ -142,8 +141,11 @@ export default function StatsPage() {
               Доєднатися до команди аудиторів
             </a>
           </div>
-          <div className="rounded-2xl overflow-hidden h-52" style={{ background: "linear-gradient(90deg,#2aa9e0 0%, #1f9d55 45%, #f5b94a 75%, #e8734a 100%)" }}>
-            <div className="h-full w-full grid place-items-center text-white/90 text-[13px] font-medium">Теплова карта фасаду — приклад візуалізації</div>
+          <div className="grid grid-cols-2 gap-2 h-52">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/thermal-corpus-1.png" alt="Тепловізійний знімок фасаду корпусу" className="h-full w-full object-cover rounded-2xl" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/thermal-corpus-2.png" alt="Тепловізійний знімок фасаду корпусу, інший ракурс" className="h-full w-full object-cover rounded-2xl" />
           </div>
         </div>
       </section>

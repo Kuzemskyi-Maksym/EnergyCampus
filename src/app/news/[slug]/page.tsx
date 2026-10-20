@@ -41,10 +41,41 @@ export default async function NewsDetail({ params }: { params: Promise<{ slug: s
       <div className="mt-7 h-56 rounded-2xl" style={{ background: "linear-gradient(135deg,#1f9d55,#123522)" }} />
 
       <div className="mt-8 space-y-4">
-        {item.body.map((p, i) => (
-          <p key={i} className="text-[15.5px] leading-relaxed" style={{ color: "var(--color-ink)" }}>{p}</p>
-        ))}
+        {(() => {
+          const blocks: { type: "p" | "ul"; items: string[] }[] = [];
+          for (const line of item.body) {
+            const isBullet = line.startsWith("• ");
+            const last = blocks[blocks.length - 1];
+            if (isBullet && last && last.type === "ul") {
+              last.items.push(line.slice(2));
+            } else if (isBullet) {
+              blocks.push({ type: "ul", items: [line.slice(2)] });
+            } else {
+              blocks.push({ type: "p", items: [line] });
+            }
+          }
+          return blocks.map((b, i) =>
+            b.type === "p" ? (
+              <p key={i} className="text-[15.5px] leading-relaxed" style={{ color: "var(--color-ink)" }}>{b.items[0]}</p>
+            ) : (
+              <ul key={i} className="list-disc pl-5 space-y-2">
+                {b.items.map((it, j) => (
+                  <li key={j} className="text-[15.5px] leading-relaxed" style={{ color: "var(--color-ink)" }}>{it}</li>
+                ))}
+              </ul>
+            )
+          );
+        })()}
       </div>
+
+      {item.source && (
+        <p className="mt-6 text-[13.5px]" style={{ color: "var(--color-slate)" }}>
+          Джерело:{" "}
+          <a href={item.source.url} target="_blank" rel="noreferrer" className="underline font-medium" style={{ color: "var(--color-leaf-dark)" }}>
+            {item.source.label}
+          </a>
+        </p>
+      )}
 
       <div className="mt-9 pt-6 border-t flex items-center gap-3" style={{ borderColor: "var(--color-line)" }}>
         <span className="text-[13px] font-medium" style={{ color: "var(--color-slate)" }}>Поширити:</span>
